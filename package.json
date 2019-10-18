@@ -1,0 +1,11 @@
+{
+  "name": "giveaway-boi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "author": "Dagg",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
