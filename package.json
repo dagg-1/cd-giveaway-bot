@@ -1,7 +1,7 @@
 {
-  "name": "giveaway-boi",
-  "version": "1.0.0",
-  "description": "",
+  "name": "node-giveaway",
+  "version": "0.1.0",
+  "description": "Simple Discord giveaway bot written in JS",
   "main": "bot.js",
   "author": "Dagg",
   "license": "MIT",
