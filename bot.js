@@ -128,6 +128,7 @@ client.on('message', msg => {
                                         let thisInterval = setInterval(() => {
                                             aoNow = new Date();
                                             if (endDate <= aoNow) {
+                                                let keynum = 0;
                                                 gameKeys.forEach(async element => {
                                                     let winnerObj;
                                                     let winner;
@@ -137,6 +138,9 @@ client.on('message', msg => {
                                                         console.log(`WINNER: ${arrEntries[winner].tag}`);
                                                         winnerObj = client.users.get(arrEntries[winner].id);
                                                         winnerObj.send(`You won! Here's your key: ${element}`).catch(() => { client.channels.get(slicedCId).send(`<@${arrEntries[winner].id}> has their DMs disabled! Re-rolling`); roll(); });
+                                                        givEmbed.fields[keynum+2].name = givEmbed.fields[keynum+2].value
+                                                        givEmbed.fields[keynum+2].value = `WINNER: <@${winnerObj.id}>`
+                                                        ++keynum
                                                     };
                                                 });
                                                 givEmbed.setColor("#FF0000")
