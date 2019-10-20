@@ -1,9 +1,13 @@
 {
-  "name": "node-giveaway",
-  "version": "0.1.0",
-  "description": "Simple Discord giveaway bot written in JS",
+  "name": "cd-giveaway-bot",
+  "version": "1.0tc1",
+  "description": "Giveaway Discord bot for Critiquing Doge",
   "main": "bot.js",
-  "author": "Dagg",
+  "author": "Dagg, Emily Black",
+  "homepage": "https://discord.gg/doge",
+  "bugs": {
+    "url": "https://github.com/dagg-1/node-giveaway/issues"
+  }
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.5.1"
