@@ -7,7 +7,7 @@
   "homepage": "https://discord.gg/doge",
   "bugs": {
     "url": "https://github.com/dagg-1/node-giveaway/issues"
-  }
+  },
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.5.1"
