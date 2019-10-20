@@ -1,2 +1,2 @@
 # CD Giveaway Bot
-Giveaway Discrord bot for Critiquing Doge 
+Giveaway Discord bot for Critiquing Doge 
