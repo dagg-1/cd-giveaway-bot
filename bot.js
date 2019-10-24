@@ -140,6 +140,7 @@ client.on('message', msg => {
                                                         winnerObj.send(`You won! Here's your key: ${element}`).catch(() => { client.channels.get(slicedCId).send(`<@${arrEntries[winner].id}> has their DMs disabled! Re-rolling`); roll(); });
                                                         givEmbed.fields[keynum+2].name = givEmbed.fields[keynum+2].value
                                                         givEmbed.fields[keynum+2].value = `WINNER: <@${winnerObj.id}>`
+                                                        if(arrEntries.length > gameKeys.length) arrEntries.splice(winner, 1)
                                                         ++keynum
                                                     };
                                                 });
