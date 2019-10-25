@@ -33,8 +33,8 @@ client.on('message', msg => {
         case "create":
             let count = parseInt(arguments[0]);
             if (!msg.guild.me.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("I don't have permissions to manage reactions! (Manage Messages)");
-            if (!arguments[0] || !arguments[4] || !arguments[2 + (count * 2)] || arguments[3 + (count * 2)])
-                return msg.channel.send("USAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over 2000 characters, watch your count!");
+            if (!arguments[0] || !arguments[4] || !arguments[2 + (count * 2)] || arguments[3 + (count * 2)] || arguments[arguments.length - 1] > 22)
+                return msg.channel.send("USAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over **22** games, watch your count!");
 
             // Parse data
             gameTitles = arguments.slice(1, count + 1);
@@ -45,11 +45,11 @@ client.on('message', msg => {
             // Begin checking if the recieved data is valid
             let slicedCId = channelId.replace(/<|#|>/g, "");
             if (client.channels.get(slicedCId) == undefined)
-                return msg.channel.send("Invalid channel\nUSAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over 2000 characters, watch your count!");
+                return msg.channel.send("Invalid channel\nUSAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over **22** games, watch your count!");
 
             let sepTime = giveawayTime.split(/(\d+)/);
             if (sepTime.length !== 3)
-                return msg.channel.send("Invalid duration\nUSAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over 2000 characters, watch your count!");
+                return msg.channel.send("Invalid duration\nUSAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over **22** games, watch your count!");
             // End checking
 
             // Assemble the embed
@@ -70,7 +70,7 @@ client.on('message', msg => {
             });
             i = 1;
             gameKeys.forEach(element => {
-                CreEmbed.fields[i + 2] = { name: CreEmbed.fields[i + 2].name, value: element, inline: false };
+                CreEmbed.fields[i + 2] = { name: CreEmbed.fields[i + 2].name, value: element, inline: true };
                 ++i;
             });
 
@@ -92,7 +92,7 @@ client.on('message', msg => {
                                     i = 1;
                                     gameTitles.forEach(element => {
                                         let split = element.replace(/-/gi, " ");
-                                        givEmbed.addField(`Game #${i}`, split);
+                                        givEmbed.addField(`Game #${i}`, split, true);
                                         ++i;
                                     });
                                     // Determine the end date
