@@ -32,6 +32,7 @@ client.on('message', msg => {
     switch (command) {
         case "create":
             let count = parseInt(arguments[0]);
+            if (!msg.member.roles.find(x => x.name == "Giveaways")) return msg.channel.send("You do not have permission to create and modify giveaways")
             if (!msg.guild.me.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("I don't have permissions to manage reactions! (Manage Messages)");
             if (!arguments[0] || !arguments[4] || !arguments[2 + (count * 2)] || arguments[3 + (count * 2)] || arguments[arguments.length - 1] > 22)
                 return msg.channel.send("USAGE: !create [Number of Games] [game-name-with-hypens-for-spaces] [Time (10s | 20m | 30h | 40d | 50m)] [#channel] [key]\nThis bulk giveaway bot cannot handle over **22** games, watch your count!");
